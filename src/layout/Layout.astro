@@ -1,34 +1,56 @@
 ---
-/* CSS Files */
-import '../styles/global.scss';
-import '../styles/utils.scss'
+import '../styles/config.css';
+import UtilStyles from '../styles/utils.astro';
 
 /* Fonts */
 import '@fontsource/libre-baskerville';
 import '@fontsource/source-sans-pro';
 
 /* Astro Components */
-import Navbar from "../components/navbar.astro";
+import Navbar from '../components/navbar.astro';
+import Footer from '../components/footer.astro';
 
 /* Astro Props */
 type Props = {
-  title: string;
-  generator: string;
+	title: string;
+	generator: string;
 };
 
 const { title } = Astro.props;
 ---
 
-<html lang="en">
+<html lang='en'>
 	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
+		<meta charset='utf-8' />
+		<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+		<meta name='viewport' content='width=device-width' />
+		<meta name='generator' content={Astro.generator} />
 		<title>{title}</title>
 	</head>
+	<UtilStyles />
 	<body>
-    <Navbar />
-		<slot />
+		<div class='layout'>
+			<Navbar />
+			<div class='layout-content'>
+				<slot />
+			</div>
+			<Footer />
+		</div>
 	</body>
+
+	<style>
+		.layout {
+			display: flex;
+			flex-direction: column;
+			min-height: 100vh;
+			padding: 1rem 0;
+		}
+
+		.layout-content {
+			display: flex;
+			flex-direction: column;
+			flex-grow: 1;
+			height: 100%;
+		}
+	</style>
 </html>
