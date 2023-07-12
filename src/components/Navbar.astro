@@ -1,0 +1,39 @@
+---
+import HeaderLink from '../components/HeaderLink.astro'
+---
+
+<nav>
+  <div class="container side-borders">
+    <div class="logo">
+      <h1>Am</h1>
+    </div>
+    <ul>
+      <HeaderLink text="About" link="#about" />
+      <HeaderLink text="Blog" link="/blog" />
+      <HeaderLink text="Work" link="/work" />
+      <HeaderLink text="Contact" link="#contact" />
+    </ul>
+  </div>
+</nav>
+
+<style>
+  .container {
+    display: flex;
+    justify-content: space-between;
+
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    border-radius: 1rem 1rem 0 0;
+    padding: 1.5rem 2rem;
+  }
+
+  .logo {
+    padding-right: 1rem;
+  }
+
+  nav ul {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+</style>
