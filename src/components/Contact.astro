@@ -1,10 +1,54 @@
+---
+import { Icon } from 'astro-icon';
+---
+
 <section>
   <div
     class="container mx-auto border-x bg-zinc-900 border-black p-6 h-[400px] flex flex-col items-center justify-center"
   >
-    <p class="text-3xl font-thin py-3 text-white">
+    <p class="text-xl md:text-3xl font-thin py-3 text-white text-center">
       Have a question or want to work together?
     </p>
-    <h3 class="text-4xl font-bold text-orange-400">Let's get in touch.</h3>
+    <h3 class="md:text-4xl text-3xl font-bold text-orange-400 text-center">
+      Let's get in touch.
+    </h3>
+    <ul class="py-5 md:py-10 flex gap-4">
+      <li>
+        <a
+          title="Email Me | alan.edward.martin@gmail.com"
+          target="_blank"
+          href="mailto:alan.edward.martin@gmail.com"
+        >
+          <Icon name="ci:mail" class="w-6 h-6 text-white" />
+        </a>
+      </li>
+      <li>
+        <a
+          title="Github | Alan-eMartin"
+          target="_blank"
+          href="https://github.com/Alan-eMartin"
+        >
+          <Icon name="ci:github" class="w-6 h-6 text-white" />
+        </a>
+      </li>
+      <li>
+        <a
+          title="Twitter | @alanMartinCodes"
+          target="_blank"
+          href="https://twitter.com/alanMartinCodes"
+        >
+          <Icon name="ci:twitter" class="w-6 h-6 text-white" />
+        </a>
+      </li>
+      <li>
+        <a
+          title="LinkedIn | Alan Martin"
+          target="_blank"
+          href="https://www.linkedin.com/in/alan-martin-2426b461/"
+        >
+          <Icon name="ci:linkedin" class="w-6 h-6 text-white" />
+        </a>
+      </li>
+    </ul>
   </div>
 </section>

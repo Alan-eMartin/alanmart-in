@@ -2,12 +2,12 @@
 
 ---
 
-<section>
+<section id="about">
   <div
-    class="container mx-auto bg-white border-x border-b border-black p-6 flex"
+    class="container mx-auto bg-white border-x border-b border-black p-6 flex flex-col-reverse md:flex-row"
   >
-    <div class="w-1/2 border-black border p-8">
-      <h2 class="text-2xl font-bold">Hi, I'm Alan!</h2>
+    <div class="w-full md:w-1/2 border-black border p-8">
+      <h2 class="text-3xl font-bold">Hi, I'm Alan!</h2>
       <p class="text-lg font-light my-5 text-justify">
         I am a software developer with a background in the culinary arts. Having
         worked with several early-stage startups, including Tablz, Ambassador
@@ -21,17 +21,25 @@
         extraordinary together!
       </p>
       <a
-        class="text-lg border-b border-black pb-1 block-inline font-light"
+        class="text-lg border-b border-black pb-1 block-inline font-light mr-5"
         href="/about"
       >
         Learn more about me
       </a>
+      <a
+        class="text-lg border-b border-black pb-1 block-inline font-light border-t-0"
+        href="/work"
+      >
+        See my work
+      </a>
     </div>
-    <div class="bg-neutral-200 w-1/2 border-black border border-l-0 relative">
+    <div
+      class="bg-neutral-200 w-full md:w-1/2 border-black border border-b-0 md:border-l-0 relative h-[400px] md:h-auto"
+    >
       <img
         class="object-cover object-center h-full w-full absolute filter filter-grayscale filter-grayscale-50"
         src="/images/about.jpeg"
-        alt="Me (Alan) and my wife"
+        alt="Me (Alan) in the Tehuacán Temple in Mexico"
       />
     </div>
   </div>
