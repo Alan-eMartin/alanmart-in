@@ -4,10 +4,12 @@ import Layout from '../layout/Layout.astro';
 import Header from '../components/Header.astro';
 import About from '../components/About.astro';
 import Contact from '../components/Contact.astro';
+import PostFeed from '@/components/PostFeed';
 ---
 
 <Layout title="Alan Martin | Software Developer" generator="">
   <Header />
   <About />
+  <PostFeed client:load />
   <Contact />
 </Layout>
