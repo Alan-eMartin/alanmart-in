@@ -7,13 +7,20 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "format": "prettier --write \"src/**/*.astro\""
   },
   "dependencies": {
+    "@astrojs/tailwind": "^4.0.0",
     "@fontsource/libre-baskerville": "^5.0.5",
     "@fontsource/source-sans-pro": "^5.0.5",
     "astro": "^2.8.1",
     "normalize.css": "^8.0.1",
-    "sass": "^1.63.6"
+    "tailwindcss": "^3.3.2"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.0",
+    "prettier-plugin-astro": "^0.11.0",
+    "prettier-plugin-tailwindcss": "^0.4.0"
   }
 }

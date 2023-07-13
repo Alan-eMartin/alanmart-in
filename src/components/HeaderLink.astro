@@ -1,33 +1,19 @@
 ---
 type Props = {
-	text: string;
-	link: string;
-	newTab?: boolean;
+  text: string;
+  link: string;
+  newTab?: boolean;
 };
 
 const { text, link, newTab = false } = Astro.props;
 ---
 
-<li class='header-link'>
-	<a target={newTab ? '_blank' : '_self'} href={link}>{text}</a>
+<li>
+  <a
+    class="text-base hover:opacity-70 hover:translate-y-[-0.15rem] hover:scale-105 focus:translate-y-[-0.15rem] focus:scale-105 transition-all duration-75 ease-linear block"
+    target={newTab ? ' _blank' : '_self'}
+    href={link}
+  >
+    {text}
+  </a>
 </li>
-
-<style>
-	.header-link {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.header-link a {
-		font-size: 1rem;
-		transition: all 0.1s ease-in-out;
-	}
-
-	.header-link a:hover,
-	.header-link a:focus {
-		opacity: 0.8;
-		scale: 1.1;
-		translate: 0 -0.1rem;
-	}
-</style>
