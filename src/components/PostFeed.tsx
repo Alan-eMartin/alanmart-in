@@ -16,6 +16,7 @@ export default function PostFeed({ title }: Props) {
     >
       {title && <h3 className='text-xl md:text-3xl text-center pb-6'>{title}</h3>}
       <Swiper
+        style={{ '--swiper-navigation-color': '#fff', '--swiper-pagination-color': '#fff' } as React.CSSProperties}
         modules={[FreeMode, Pagination]}
         freeMode
         pagination={{ clickable: true, dynamicBullets: true, el: '.swiper-pagination' }}
@@ -53,9 +54,10 @@ export default function PostFeed({ title }: Props) {
         </SwiperSlide>
       </Swiper>
       <div className='relative pt-10'>
-        <div className="swiper-pagination"></div>
+        <div className="swiper-pagination">
+          {/* Pagination Container */}
+        </div>
       </div>
-    </div >
-
+    </div>
   )
 }
