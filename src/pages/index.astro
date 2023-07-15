@@ -1,14 +1,14 @@
 ---
-import Layout from '../Layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import About from '../components/About.astro';
-import Contact from '../components/Contact.astro';
+import Layout from '@/layouts/Layout.astro';
 import PostFeed from '@/components/PostFeed';
+import AboutPreview from '@/components/AboutPreview.astro';
+import Contact from '@/components/Contact.astro';
+import HomeHeader from '@/components/HomeHeader.astro';
 ---
 
 <Layout title="Alan Martin | Software Developer" generator="">
-  <Header />
-  <About />
+  <HomeHeader />
+  <AboutPreview />
   <PostFeed title="Recent Blog Posts" client:load />
   <Contact />
 </Layout>

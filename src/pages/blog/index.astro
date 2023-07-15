@@ -1,0 +1,14 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Header from '@/components/Header.astro';
+import PostFeed from '@/components/PostFeed';
+import FeaturedPost from '@/components/FeaturedPost.astro';
+import Contact from '@/components/Contact.astro';
+---
+
+<Layout title="The Blog | Alan Martin - Software Developer" generator="">
+  <Header subtitle="The Blog" />
+  <FeaturedPost />
+  <PostFeed title="Recent Blog Posts" client:load />
+  <Contact />
+</Layout>

@@ -1,12 +1,12 @@
 ---
-import AboutHeader from '@/components/AboutHeader.astro';
-import Layout from '../Layouts/Layout.astro';
-import AboutBio from '@/components/AboutBio.astro';
+import Layout from '@/layouts/Layout.astro';
+import Header from '@/components/Header.astro';
+import AboutJourney from '@/components/AboutJourney.astro';
 import Contact from '@/components/Contact.astro';
 ---
 
 <Layout title="About: Alan Martin | Software Developer" generator="">
-  <AboutHeader />
-  <AboutBio />
+  <Header subtitle="Software Developer" />
+  <AboutJourney />
   <Contact />
 </Layout>
