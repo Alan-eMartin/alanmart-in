@@ -8,13 +8,13 @@ import '@fontsource/source-sans-pro';
 /* Astro Components */
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import Contact from '@/components/Contact.astro';
 
 /* Astro Props */
 type Props = {
   title: string;
   generator: string;
 };
-
 const { title } = Astro.props;
 ---
 
@@ -30,6 +30,7 @@ const { title } = Astro.props;
     <div>
       <Navbar />
       <slot />
+      <Contact />
       <Footer />
     </div>
   </body>

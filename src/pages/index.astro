@@ -2,7 +2,6 @@
 import Layout from '@/layouts/Layout.astro';
 import PostFeed from '@/components/PostFeed';
 import AboutPreview from '@/components/AboutPreview.astro';
-import Contact from '@/components/Contact.astro';
 import HomeHeader from '@/components/HomeHeader.astro';
 ---
 
@@ -10,5 +9,4 @@ import HomeHeader from '@/components/HomeHeader.astro';
   <HomeHeader />
   <AboutPreview />
   <PostFeed title="Recent Blog Posts" client:load />
-  <Contact />
 </Layout>
