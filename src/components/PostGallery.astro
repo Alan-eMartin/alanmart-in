@@ -1,0 +1,18 @@
+---
+import PostLink from './PostLink.astro';
+type Props = {
+  title?: string;
+};
+const { title = 'All Articles' } = Astro.props;
+---
+
+<section class="container mx-auto border-x border-black p-6 bg-white">
+  <h2 class="text-xl md:text-3xl text-center">{title}</h2>
+  <div class="container mx-auto border border-black p-6 flex gap-6 flex-wrap">
+    <PostLink />
+    <PostLink />
+    <PostLink />
+    <PostLink />
+    <PostLink />
+  </div>
+</section>
