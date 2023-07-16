@@ -1,7 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import Header from '@/components/Header.astro';
-import PostFeed from '@/components/PostFeed';
 import PostFeature from '@/components/PostFeature.astro';
 import PostGallery from '@/components/PostGallery.astro';
 ---
@@ -10,5 +9,4 @@ import PostGallery from '@/components/PostGallery.astro';
   <Header subtitle="The Blog" />
   <PostFeature />
   <PostGallery />
-  <PostFeed title="My Favourites" client:load />
 </Layout>

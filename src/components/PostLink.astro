@@ -1,25 +1,36 @@
 ---
+import { Post } from '@/sanity/sanity';
+import { urlForImage } from '@/sanity/urlForImage';
 
+type Props = {
+  post: Post;
+};
+
+const {
+  post: { title, mainImage, slug, excerpt, body },
+} = Astro.props;
+
+console.log(body);
 ---
 
-<a class="border border-black gallery-link" href="">
+<a class="border border-black gallery-link" href={`blog/${slug}`}>
   <article>
     <div
       class="relative h-[300px] flex flex-col justify-end p-4 md:text-left text-center"
     >
       <h2
-        class="relative z-20 text-white text-lh md:text-xl whitespace-normal line-clamp-2 font-bold"
+        class="relative z-20 text-white text-base md:text-lg mb-1 whitespace-normal line-clamp-2 font-bold"
       >
-        My foster failures
+        {title}
       </h2>
       <p
         class="relative z-20 text-sm text-white whitespace-normal line-clamp-2"
       >
-        Accept failure, and give a cat a home.
+        {excerpt}
       </p>
       <img
         class="absolute inset-0 object-cover object-center w-full h-full z-0"
-        src="https://images.unsplash.com/photo-1619268806596-032d42168217?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80"
+        src={urlForImage(mainImage).url()}
         alt="Cat"
       />
       <div
@@ -31,7 +42,6 @@
 </a>
 
 <style>
-  /* Calc would not work in tailwind: so styles are here. */
   .gallery-link {
     display: block;
     width: 100%;
