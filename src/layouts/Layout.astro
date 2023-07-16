@@ -13,9 +13,8 @@ import Contact from '@/components/Contact.astro';
 /* Astro Props */
 type Props = {
   title: string;
-  generator: string;
 };
-const { title } = Astro.props;
+const { title } = Astro.props as Props;
 ---
 
 <html lang="en">
