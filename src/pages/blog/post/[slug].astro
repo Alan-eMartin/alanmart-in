@@ -1,0 +1,63 @@
+---
+import Author from '@/components/Author.astro';
+import PortableText from '@/components/PortableText.astro';
+import PostFeed from '@/components/PostFeed';
+import Layout from '@/layouts/Layout.astro';
+import { Post, getPosts } from '@/sanity/sanity';
+import { urlForImage } from '@/sanity/urlForImage';
+
+export async function getStaticPaths() {
+  const allPost = await getPosts();
+
+  return allPost.map((post) => ({
+    params: {
+      slug: post.slug,
+    },
+    props: { post },
+  }));
+}
+
+type Props = {
+  post: Post;
+};
+
+const {
+  post: { title, body, mainImage, publishedAt },
+} = Astro.props;
+---
+
+<Layout title={`Blog:`}>
+  <div class="container mx-auto bg-white border-x border-black p-6">
+    <header class="md:pb-8 pb-2">
+      <div class="border border-black relative h-[400px] flex p-6">
+        <h1
+          class="relative z-30 text-2xl md:text-3xl self-center justify-self-center w-full text-center text-white font-bold"
+        >
+          {title}
+        </h1>
+
+        <div class="absolute inset-0 z-20 bg-black opacity-40"></div>
+        <img
+          class="absolute inset-0 w-full h-full object-cover object-center z-10"
+          src={urlForImage(mainImage).url()}
+          alt={mainImage.altText}
+        />
+      </div>
+      <div
+        class="flex items-center justify-center p-2 md:text-xs text-xs font-light text-center bg-black text-white"
+      >
+        <caption>{mainImage.caption}</caption>
+      </div>
+    </header>
+
+    <section>
+      <article class="md:max-w-3xl max-w-none mx-auto p-6 flex flex-col gap-4">
+        <PortableText portableText={body} />
+      </article>
+    </section>
+    <Author publishedAt={publishedAt} />
+  </div>
+  <section class="container mx-auto border-t border-black">
+    <PostFeed title="You may also like:" client:load />
+  </section>
+</Layout>

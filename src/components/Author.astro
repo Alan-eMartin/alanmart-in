@@ -1,0 +1,20 @@
+---
+type Props = {
+  publishedAt: string;
+};
+
+// convert date to month day, year
+const pDate = new Date(Astro.props.publishedAt).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<section class="border-t border-zinc-900 max-w-3xl mx-auto my-10 py-6">
+  <div>
+    <h3 class="text-base">
+      Authored by <span class="text-orange-500">Alan Martin</span> on {pDate}
+    </h3>
+  </div>
+</section>

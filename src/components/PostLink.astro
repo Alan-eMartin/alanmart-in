@@ -7,13 +7,14 @@ type Props = {
 };
 
 const {
-  post: { title, mainImage, slug, excerpt, body },
+  post: { title, mainImage, slug, excerpt },
 } = Astro.props;
-
-console.log(body);
 ---
 
-<a class="border border-black gallery-link" href={`blog/${slug}`}>
+<a
+  class="block hover:scale-[1.02] focus:scale-[1.02] ease-in duration-100 border border-black gallery-link"
+  href={`blog/post/${slug}`}
+>
   <article>
     <div
       class="relative h-[300px] flex flex-col justify-end p-4 md:text-left text-center"
