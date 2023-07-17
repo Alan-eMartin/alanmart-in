@@ -15,7 +15,10 @@ export type Post = {
 };
 
 export async function getPosts(): Promise<Post[]> {
-  const posts = await sanityClient.fetch(`*[_type == "post"]`);
+  // sort posts by published date, descending
+  const posts = await sanityClient.fetch(
+    `*[_type == "post"] | order(publishedAt desc)`,
+  );
 
   return posts.map((post: Post) => {
     return {

@@ -2,7 +2,7 @@
 import { getPosts } from '@/sanity/sanity';
 import { urlForImage } from '@/sanity/urlForImage';
 const posts = await getPosts();
-const featured = posts.filter((post) => post.featured)[0];
+const featured = posts.find((post) => post.featured);
 ---
 
 {
