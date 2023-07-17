@@ -28,7 +28,7 @@ const end = endDate ? formatDate(endDate) : 'Present';
 ---
 
 <div class="w-full md:w-[calc((100%/2)-24px)]">
-  <div class="h-[375px] relative border border-black">
+  <div class="h-[300px] md:h-[375px] relative border border-black">
     <img
       class="absolute inset-0 w-full h-full object-cover object-center"
       src={urlForImage(mainImage).url()}
@@ -36,8 +36,8 @@ const end = endDate ? formatDate(endDate) : 'Present';
     />
   </div>
   <div class="py-3 px-2">
-    <div class="flex justify-between items-center mb-2">
-      <h2 class="text-lg font-bold">
+    <div class="flex md:flex-row flex-col justify-between md:items-center mb-2">
+      <h2 class="text-base md:text-lg font-bold">
         {position} -
         <a
           class="text-orange-500 hover:underline font-normal"
