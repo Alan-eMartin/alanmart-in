@@ -28,20 +28,3 @@ export async function getPosts(): Promise<Post[]> {
     };
   });
 }
-
-export async function getPost(slug: string): Promise<Post> {
-  const post = await sanityClient.fetch(
-    `*[_type == "post" && slug.current == $slug][0]`,
-    { slug },
-  );
-
-  return {
-    title: post.title,
-    excerpt: post.excerpt,
-    slug: post.slug.current,
-    body: post.body,
-    mainImage: post.mainImage,
-    publishedAt: post.publishedAt,
-    featured: post.featured,
-  };
-}
