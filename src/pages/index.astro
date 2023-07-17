@@ -3,10 +3,14 @@ import Layout from '@/layouts/Layout.astro';
 import PostFeed from '@/components/PostFeed';
 import AboutPreview from '@/components/AboutPreview.astro';
 import HomeHeader from '@/components/HomeHeader.astro';
+import { getPosts } from '@/sanity/sanity';
+
+const posts = await getPosts();
+const postsToShow = posts.slice(0, 6);
 ---
 
 <Layout title="Alan Martin | Software Developer">
   <HomeHeader />
   <AboutPreview />
-  <PostFeed title="Recent Blog Posts" client:load />
+  <PostFeed posts={postsToShow} title="Recent Blog Posts" client:load />
 </Layout>

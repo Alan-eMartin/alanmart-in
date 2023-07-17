@@ -1,15 +1,15 @@
 ---
 import Author from '@/components/Author.astro';
 import PortableText from '@/components/PortableText.astro';
-import PostFeed from '@/components/PostFeed';
+// import PostFeed from '@/components/PostFeed';
 import Layout from '@/layouts/Layout.astro';
 import { Post, getPosts } from '@/sanity/sanity';
 import { urlForImage } from '@/sanity/urlForImage';
 
 export async function getStaticPaths() {
-  const allPost = await getPosts();
+  const allPosts = await getPosts();
 
-  return allPost.map((post) => ({
+  return allPosts.map((post) => ({
     params: {
       slug: post.slug,
     },
@@ -56,8 +56,16 @@ const {
       </article>
     </section>
     <Author publishedAt={publishedAt} />
+    <div class="p-6 text-center">
+      <a
+        class="text-lg border-b border-black pb-1 block-inline font-light mr-4 md:mr-5 self-start"
+        href="/blog"
+      >
+        Read more articles
+      </a>
+    </div>
   </div>
-  <section class="container mx-auto border-t border-black">
+  <!-- <section class="container mx-auto border-t border-black">
     <PostFeed title="You may also like:" client:load />
-  </section>
+  </section> -->
 </Layout>
