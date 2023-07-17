@@ -15,6 +15,7 @@ const { SANITY_DATASET, SANITY_PROJECT_ID } = loadEnv(
 // https://astro.build/config
 export default defineConfig({
   site: 'https://alanmart.in',
+  base: '/',
   env: {
     SANITY_PROJECT_ID: import.meta.env.SANITY_PROJECT_ID,
     SANITY_DATASET: import.meta.env.SANITY_DATASET,
