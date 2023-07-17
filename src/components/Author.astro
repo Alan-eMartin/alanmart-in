@@ -3,7 +3,6 @@ type Props = {
   publishedAt: string;
 };
 
-// convert date to month day, year
 const pDate = new Date(Astro.props.publishedAt).toLocaleDateString('en-US', {
   year: 'numeric',
   month: 'long',

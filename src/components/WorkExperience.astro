@@ -1,0 +1,68 @@
+---
+import { Work } from '@/sanity/sanity';
+import { urlForImage } from '@/sanity/urlForImage';
+
+type Props = {
+  work: Work;
+};
+
+const {
+  company,
+  companyUrl,
+  mainImage,
+  position,
+  technologies,
+  startDate,
+  endDate,
+  description,
+} = Astro.props.work;
+
+// format dates to be Month, Year
+const formatDate = (date: string) => {
+  const d = new Date(date);
+  return d.toLocaleString('default', { month: 'long', year: 'numeric' });
+};
+
+const start = formatDate(startDate);
+const end = endDate ? formatDate(endDate) : 'Present';
+---
+
+<div class="w-full md:w-[calc((100%/2)-24px)]">
+  <div class="h-[375px] relative border border-black">
+    <img
+      class="absolute inset-0 w-full h-full object-cover object-center"
+      src={urlForImage(mainImage).url()}
+      alt={mainImage.altText}
+    />
+  </div>
+  <div class="py-3 px-2">
+    <div class="flex justify-between items-center mb-2">
+      <h2 class="text-lg font-bold">
+        {position} -
+        <a
+          class="text-orange-500 hover:underline font-normal"
+          href={companyUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {company}
+        </a>
+      </h2>
+      <p class="text-xs font-medium">
+        {start} - {end}
+      </p>
+    </div>
+    <div>
+      <p class="py-2">
+        {
+          technologies.map((tech) => (
+            <span class="inline-block text-white rounded-full px-2 py-1 text-xs bg-zinc-900 mr-2 mb-2">
+              {tech}
+            </span>
+          ))
+        }
+      </p>
+      <p class="font-light">{description}</p>
+    </div>
+  </div>
+</div>

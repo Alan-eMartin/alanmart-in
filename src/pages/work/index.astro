@@ -1,8 +1,22 @@
 ---
 import Header from '@/components/Header.astro';
+import WorkExperience from '@/components/WorkExperience.astro';
 import Layout from '@/layouts/Layout.astro';
+import { Work, getWork } from '@/sanity/sanity';
+
+const work: Work[] = await getWork();
 ---
 
 <Layout title="My Work | Alan Martin - Software Developer">
   <Header subtitle="My Work" />
+  <section class="container mx-auto border-x border-black p-6 pb-10 bg-white">
+    <h2
+      class="text-3xl text-center p-10 mb-6 bg-zinc-900 text-white border border-black"
+    >
+      Work Experience
+    </h2>
+    <div class="flex flex-wrap gap-6">
+      {work.map((job) => <WorkExperience work={job} />)}
+    </div>
+  </section>
 </Layout>

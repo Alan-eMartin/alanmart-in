@@ -32,3 +32,39 @@ export async function getPosts(): Promise<Post[]> {
     };
   });
 }
+
+export type Work = {
+  company: string;
+  slug: {
+    current: string;
+  };
+  companyUrl: string;
+  mainImage: any;
+  position: string;
+  location: string;
+  technologies: string[];
+  startDate: string;
+  endDate?: string;
+  description: string;
+};
+
+export async function getWork() {
+  const work = await sanityClient.fetch(
+    `*[_type == "work"] | order(startDate desc)`,
+  );
+
+  return work.map((work: Work) => {
+    return {
+      company: work.company,
+      slug: work.slug.current,
+      companyUrl: work.companyUrl,
+      mainImage: work.mainImage,
+      position: work.position,
+      location: work.location,
+      technologies: work.technologies,
+      startDate: work.startDate,
+      endDate: work?.endDate,
+      description: work.description,
+    };
+  });
+}
