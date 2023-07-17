@@ -25,6 +25,7 @@ export async function getPosts(): Promise<Post[]> {
       body: post.body,
       mainImage: post.mainImage,
       publishedAt: post.publishedAt,
+      featured: post.featured,
     };
   });
 }
