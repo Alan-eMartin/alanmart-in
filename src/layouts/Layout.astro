@@ -4,6 +4,11 @@ import '../styles/config.css';
 /* Fonts */
 import '@fontsource/libre-baskerville';
 import '@fontsource/source-sans-pro';
+import '@fontsource/source-sans-pro/200.css';
+import '@fontsource/source-sans-pro/300.css';
+import '@fontsource/source-sans-pro/400.css';
+import '@fontsource/source-sans-pro/600.css';
+import '@fontsource/source-sans-pro/700.css';
 
 /* Astro Components */
 import Navbar from '../components/Navbar.astro';
@@ -28,6 +33,9 @@ const { title, description } = Astro.props as Props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description || defaultDescription} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/images/OG-image.png" />
     <title>{title}</title>
   </head>
   <body class="p-3 md:p-5">
