@@ -22,11 +22,14 @@ type Props = {
 };
 
 const {
-  post: { title, body, mainImage, publishedAt },
+  post: { title, excerpt, body, mainImage, publishedAt },
 } = Astro.props;
 ---
 
-<Layout title={`${title} | Alan Martin - Software Developer`}>
+<Layout
+  title={`${title} | Alan Martin - Software Developer`}
+  description={excerpt}
+>
   <div class="container mx-auto bg-white border-x border-black p-6">
     <header class="md:pb-8 pb-2">
       <div class="border border-black relative h-[400px] flex p-6">
