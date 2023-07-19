@@ -17,6 +17,7 @@ const customComponents = {
             alt="${value.alt}"
           />
         </picture>
+        <p class="text-center font-light text-xs text-black">${value?.caption}</p>
       `;
     },
     // blocks
@@ -28,8 +29,14 @@ const customComponents = {
       `<h2 class="text-2xl text-orange-500">${children}</h2>`,
     h3: ({ children }: { children: any }) =>
       `<h3 class="text-xl text-orange-500">${children}</h3>`,
-    normal: ({ children }: { children: any }) =>
-      `<p class="text-black text-lg font-light ">${children}</p>`,
+    normal: ({ children }: { children: any }) => {
+      const modifiedChildren = children.replace(
+        // LITTLE HACCKY
+        /(<a\b[^>]*>.*?<\/a>)/g,
+        '<u class="text-blue-500 underline">$1</u>',
+      );
+      return `<p class="text-black text-lg font-light">${modifiedChildren}</p>`;
+    },
   },
 };
 
