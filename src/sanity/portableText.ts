@@ -14,7 +14,7 @@ const customComponents = {
           <img
             class="responsive__img"
             src="${urlForImage(value.asset).url()}"
-            alt="${value.alt}"
+            alt="${value.altText}"
           />
         </picture>
         <p class="text-center font-light text-xs text-black">${value?.caption}</p>
