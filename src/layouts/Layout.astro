@@ -35,7 +35,10 @@ const { title, description, ogImage } = Astro.props as Props;
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description || defaultDescription} />
     <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta
+      property="og:description"
+      content={description || defaultDescription}
+    />
     <meta property="og:image" content={ogImage || '/images/OG-image.png'} />
     <title>{title}</title>
   </head>
